@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:weatherappflutterbloc/Widgets/bottomnavi.dart';
 
-import 'Screens/homepage.dart';
+// import 'Screens/homepage.dart';
 
 void main() {
   runApp(MainApp());

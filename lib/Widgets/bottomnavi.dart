@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:motion_tab_bar_v2/motion-tab-bar.dart';
-import 'package:motion_tab_bar_v2/motion-badge.widget.dart';
 import 'package:weatherappflutterbloc/Screens/homepage.dart';
+import 'package:weatherappflutterbloc/Widgets/pub_widget/motion-badge.widget.dart';
+import 'package:weatherappflutterbloc/Widgets/pub_widget/motion-tab-bar.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
+// import 'dart:typed_data';
+import 'package:flutter/services.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, this.title}) : super(key: key);
@@ -19,8 +22,8 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   void initState() {
     super.initState();
     _tabController = TabController(
-      initialIndex: 0,
-      length: 4,
+      length: 3,
+      initialIndex: 1,
       vsync: this,
     );
   }
@@ -34,62 +37,40 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.red,
+      backgroundColor: Color(0xff7582F4),
       bottomNavigationBar: MotionTabBar(
-        initialSelectedTab: "Dashboard",
-        useSafeArea: true, // default: true, apply safe area wrapper
-        labels: const ["Dashboard", "Home", "Profile", "Settings"],
-        icons: const [
-          Icons.dashboard,
-          Icons.home,
-          Icons.people_alt,
-          Icons.settings
-        ],
-        // optional badges, length must be same with labels
+        initialSelectedTab: "Add City", // Set the initial selected tab here
+        useSafeArea: true,
+        labels: const ["Dashboard", "Add City", "Profile"],
+        icons: const [Icons.dashboard, Icons.add, Icons.menu_rounded],
         badges: [
-          // Default Motion Badge Widget
           const MotionBadgeWidget(
             text: '99+',
-            textColor: Colors.white, // optional, default to Colors.white
-            color: Colors.red, // optional, default to Colors.red
-            size: 18, // optional, default to 18
+            textColor: Colors.white,
+            color: Colors.red,
+            size: 18,
           ),
-          // custom badge Widget
-          Container(
-            color: Colors.black,
-            padding: const EdgeInsets.all(2),
-            child: const Text(
-              '48',
-              style: TextStyle(
-                fontSize: 14,
-                color: Colors.white,
-              ),
-            ),
-          ),
-          // allow null
-          null,
-          // Default Motion Badge Widget with indicator only
           const MotionBadgeWidget(
-            isIndicator: true,
-            color: Colors.red, // optional, default to Colors.red
-            size: 5, // optional, default to 5,
-            show: true, // true / false
+            text: '45+',
+            textColor: Colors.white,
+            color: Colors.red,
+            size: 18,
           ),
+          null,
         ],
         tabSize: 50,
         tabBarHeight: 55,
         textStyle: const TextStyle(
           fontSize: 12,
           color: Colors.black,
-          fontWeight: FontWeight.w500,
+          fontWeight: FontWeight.bold,
         ),
-        tabIconColor: Colors.blue[600],
-
+        tabIconColor: Colors.white,
         tabIconSize: 28.0,
         tabIconSelectedSize: 26.0,
-        tabSelectedColor: Colors.blue[900],
-        tabIconSelectedColor: Colors.white,
-        tabBarColor: Colors.transparent,
+        tabSelectedColor: Colors.white,
+        tabIconSelectedColor: Colors.blue[900],
+        tabBarColor: Color.fromARGB(136, 117, 130, 244),
         onTabItemSelected: (int value) {
           setState(() {
             _tabController!.index = value;
@@ -97,19 +78,12 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         },
       ),
       body: TabBarView(
-        physics:
-            const NeverScrollableScrollPhysics(), // swipe navigation handling is not supported
+        physics: const NeverScrollableScrollPhysics(),
         controller: _tabController,
-        // ignore: prefer_const_literals_to_create_immutables
         children: [
+          Center(child: Text("ABC")),
           Homepage(),
-          // const Center(),
-          const Center(
-            child: Text("Profile"),
-          ),
-          const Center(
-            child: Text("Settings"),
-          ),
+          Center(child: Text("ABC")),
         ],
       ),
     );

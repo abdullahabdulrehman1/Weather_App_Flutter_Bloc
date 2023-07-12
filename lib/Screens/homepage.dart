@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
+// import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
 
 // import 'bottom_nav.dart';
 class Homepage extends StatefulWidget {
@@ -11,17 +11,17 @@ class Homepage extends StatefulWidget {
 
 class _HomepageState extends State<Homepage> {
   /// Controller to handle PageView and also handles initial page
-  final _pageController = PageController(initialPage: 0);
+  // final _pageController = PageController(initialPage: 0);
 
-  /// Controller to handle bottom nav bar and also handles initial page
-  final _controller = NotchBottomBarController(index: 0);
+  // /// Controller to handle bottom nav bar and also handles initial page
+  // // final _controller = NotchBottomBarController(index: 0);
 
-  int maxCount = 5;
-  @override
-  void dispose() {
-    _pageController.dispose();
-    super.dispose();
-  }
+  // int maxCount = 5;
+  // @override
+  // void dispose() {
+  //   _pageController.dispose();
+  //   super.dispose();
+  // }
 
   final List<Widget> bottomBarPages = [
     const Homepage()
