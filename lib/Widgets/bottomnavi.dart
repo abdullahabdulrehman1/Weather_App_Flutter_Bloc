@@ -65,6 +65,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
           color: Colors.black,
           fontWeight: FontWeight.bold,
         ),
+
         tabIconColor: Colors.white,
         tabIconSize: 28.0,
         tabIconSelectedSize: 26.0,

@@ -150,15 +150,29 @@ class _MotionTabBarState extends State<MotionTabBar>
   @override
   Widget build(BuildContext context) {
     return Container(
+      // padding: EdgeInsets.all(10),
+      margin: EdgeInsets.all(10),
       decoration: BoxDecoration(
-        color: widget.tabBarColor,
+        borderRadius: BorderRadius.circular(10),
+        color: Color.fromARGB(20, 255, 255, 255),
+        // gradient: LinearGradient(
+        //   begin: Alignment.topLeft,
+        //   end: Alignment.bottomRight,
+        //   colors: [
+        //     const Color(0xFF262C51),
+        //     const Color(0xFF3E3F74),
+        //   ],
+        // ),
         boxShadow: [
           BoxShadow(
-            color: Colors.black12,
-            offset: Offset(0, -1),
-            blurRadius: 5,
+            color: Colors.black26,
+            offset: Offset(0, -2),
+            blurRadius: 100,
           ),
         ],
+
+        // BorderRadius.circular(MediaQuery.of(context).size.width * 0.10),
+        // borderRadius: BorderRadius.circular(100),
       ),
       child: SafeArea(
         bottom: widget.useSafeArea,
@@ -168,8 +182,8 @@ class _MotionTabBarState extends State<MotionTabBar>
             Container(
               height: widget.tabBarHeight,
               decoration: BoxDecoration(
-                color: widget.tabBarColor,
-              ),
+                  // color: Colors.green,
+                  ),
               child: Row(
                 mainAxisSize: MainAxisSize.max,
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -214,6 +228,7 @@ class _MotionTabBarState extends State<MotionTabBar>
                                       blurRadius: 8,
                                     )
                                   ],
+                                  // borderRadius: BorderRadius.circular(),
                                 ),
                               ),
                             ),
@@ -339,19 +354,6 @@ class HalfPainter extends CustomPainter {
 
   @override
   void paint(Canvas canvas, Size size) {
-    // final Rect beforeRect = Rect.fromLTWH(0, (size.height / 2) - 10, 10, 10);
-    // final Rect largeRect = Rect.fromLTWH(10, 0, size.width - 20, 70);
-    // final Rect afterRect = Rect.fromLTWH(size.width - 10, (size.height / 2) - 10, 10, 10);
-
-    // final path = Path();
-
-    // path.arcTo(beforeRect, vector.radians(0), vector.radians(90), false);
-    // path.lineTo(20, size.height / 2);
-    // path.arcTo(largeRect, vector.radians(0), -vector.radians(180), false);
-    // path.moveTo(size.width - 10, size.height / 2);
-    // path.lineTo(size.width - 10, (size.height / 2) - 10);
-    // path.arcTo(afterRect, vector.radians(180), vector.radians(-90), false);
-
     final double curveSize = 10;
     final double xStartingPos = 0;
     final double yStartingPos = (size.height / 2);
@@ -361,17 +363,31 @@ class HalfPainter extends CustomPainter {
 
     path.moveTo(xStartingPos, yStartingPos);
     path.lineTo(size.width - xStartingPos, yStartingPos);
-    path.quadraticBezierTo(size.width - (curveSize), yStartingPos,
+    path.quadraticBezierTo(size.width - curveSize, yStartingPos,
         size.width - (curveSize + 5), yMaxPos);
     path.lineTo(xStartingPos + (curveSize + 5), yMaxPos);
     path.quadraticBezierTo(
-        xStartingPos + (curveSize), yStartingPos, xStartingPos, yStartingPos);
+        xStartingPos + curveSize, yStartingPos, xStartingPos, yStartingPos);
 
     path.close();
 
-    canvas.drawPath(path, Paint()..color = color ?? Colors.white);
+    final Gradient gradient = LinearGradient(
+      begin: Alignment.topLeft,
+      end: Alignment.bottomRight,
+      colors: [
+        const Color(0xFF262C51),
+        const Color(0xFF3E3F74),
+      ],
+    );
+
+    final Rect pathBounds = path.getBounds();
+    final Paint paint = Paint()
+      ..shader = gradient.createShader(pathBounds)
+      ..style = PaintingStyle.fill;
+
+    canvas.drawPath(path, paint);
   }
 
   @override
-  bool shouldRepaint(CustomPainter oldDelegate) => true;
+  bool shouldRepaint(CustomPainter oldDelegate) => false;
 }
