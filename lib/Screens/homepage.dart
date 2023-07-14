@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
-// import 'package:animated_notch_bottom_bar/animated_notch_bottom_bar/animated_notch_bottom_bar.dart';
+import 'package:google_fonts/google_fonts.dart';
 
-// import 'bottom_nav.dart';
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
 
@@ -10,26 +9,10 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-  /// Controller to handle PageView and also handles initial page
-  // final _pageController = PageController(initialPage: 0);
-
-  // /// Controller to handle bottom nav bar and also handles initial page
-  // // final _controller = NotchBottomBarController(index: 0);
-
-  // int maxCount = 5;
-  // @override
-  // void dispose() {
-  //   _pageController.dispose();
-  //   super.dispose();
-  // }
-
   final List<Widget> bottomBarPages = [
     const Homepage()
     // const Page1(),
     // const Page2(),
-    // const Page3(),
-    // const Page4(),
-    // const Page5(),
   ];
 
   @override
@@ -45,7 +28,72 @@ class _HomepageState extends State<Homepage> {
               ),
             ),
             Center(
-              child: Image.asset("assets/Images/house.png"),
+              child: Container(
+                margin: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.4),
+                child: Image.asset(
+                  "assets/Images/house.png",
+                  // opacity: 0,
+                ),
+              ),
+            ),
+            Center(
+              child: Container(
+                margin: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height / 10),
+                child: Column(
+                  // mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text(
+                      "Karachi",
+                      style: GoogleFonts.roboto(
+                        textStyle: TextStyle(
+                          // fontWeight: FontWeight.w100,
+                          color: Colors.white,
+                          fontSize: 34,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "19°",
+                      style: GoogleFonts.roboto(
+                        textStyle: TextStyle(
+                          // fontWeight: FontWeight.w100,
+                          color: Colors.white,
+
+                          fontSize: 96,
+                          fontWeight: FontWeight.w200,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "Mostly Clear°",
+                      style: GoogleFonts.roboto(
+                        textStyle: TextStyle(
+                          // fontWeight: FontWeight.w100,
+                          color: Colors.white38,
+                          fontSize: 20,
+                          height: 0.5,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "H:24°   L:18°",
+                      style: GoogleFonts.roboto(
+                        textStyle: TextStyle(
+                          // fontWeight: FontWeight.w100,
+                          color: Colors.white,
+                          fontSize: 20,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
             ),
           ],
         ),
