@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:weatherappflutterbloc/Screens/cities_page.dart';
 import 'package:weatherappflutterbloc/Screens/homepage.dart';
 import 'package:weatherappflutterbloc/Widgets/pub_widget/motion-badge.widget.dart';
 import 'package:weatherappflutterbloc/Widgets/pub_widget/motion-tab-bar.dart';
@@ -23,7 +24,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
     super.initState();
     _tabController = TabController(
       length: 3,
-      initialIndex: 1,
+      initialIndex: 2,
       vsync: this,
     );
   }
@@ -41,7 +42,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
       bottomNavigationBar: MotionTabBar(
         initialSelectedTab: "Add City", // Set the initial selected tab here
         useSafeArea: true,
-        labels: const ["Dashboard", "Add City", "Profile"],
+        labels: const ["Dashboard", "Add City", "Cities"],
         icons: const [Icons.dashboard, Icons.add, Icons.menu_rounded],
         badges: [
           const MotionBadgeWidget(
@@ -84,7 +85,7 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
         children: [
           Center(child: Text("ABC")),
           Homepage(),
-          Center(child: Text("ABC")),
+          CitiesListPage(),
         ],
       ),
     );

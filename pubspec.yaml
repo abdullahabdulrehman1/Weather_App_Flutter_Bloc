@@ -8,9 +8,11 @@ environment:
 
 dependencies:
   animated_notch_bottom_bar: ^1.0.0
+  bottom_drawer: ^0.0.5
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.7
+  google_fonts: ^5.1.0
   motion_tab_bar_v2: ^0.2.6
 
 dev_dependencies:
@@ -26,4 +28,5 @@ flutter:
     - assets/Images/bg01.png
     - assets/Images/house.png
     - assets/Images/
+    - assets/Images/container_back.png
     
