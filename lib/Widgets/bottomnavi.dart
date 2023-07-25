@@ -37,56 +37,68 @@ class _MyHomePageState extends State<MyHomePage> with TickerProviderStateMixin {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Color(0xff7582F4),
-      bottomNavigationBar: MotionTabBar(
-        initialSelectedTab: "Add City", // Set the initial selected tab here
-        useSafeArea: true,
-        labels: const ["Dashboard", "Add City", "Cities"],
-        icons: const [Icons.dashboard, Icons.add, Icons.menu_rounded],
-        badges: [
-          const MotionBadgeWidget(
-            text: '99+',
-            textColor: Colors.white,
-            color: Colors.red,
-            size: 18,
-          ),
-          const MotionBadgeWidget(
-            text: '45+',
-            textColor: Colors.white,
-            color: Colors.red,
-            size: 18,
-          ),
-          null,
+    return Container(
+      decoration: const BoxDecoration(
+          // borderRadius: BorderRadius.all(Radius.circular(20.0)),
+          gradient: LinearGradient(
+        colors: [
+          Color.fromARGB(255, 148, 139, 202),
+          Color.fromARGB(223, 82, 44, 179),
         ],
-        tabSize: 50,
-        tabBarHeight: 55,
-        textStyle: const TextStyle(
-          fontSize: 12,
-          color: Colors.black,
-          fontWeight: FontWeight.bold,
-        ),
+        begin: Alignment.topLeft,
+        end: Alignment.bottomRight,
+      )),
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        bottomNavigationBar: MotionTabBar(
+          initialSelectedTab: "Add City", // Set the initial selected tab here
+          useSafeArea: true,
+          labels: const ["Dashboard", "Add City", "Cities"],
+          icons: const [Icons.dashboard, Icons.add, Icons.menu_rounded],
+          badges: [
+            const MotionBadgeWidget(
+              text: '99+',
+              textColor: Colors.white,
+              color: Colors.red,
+              size: 18,
+            ),
+            const MotionBadgeWidget(
+              text: '45+',
+              textColor: Colors.white,
+              color: Colors.red,
+              size: 18,
+            ),
+            null,
+          ],
+          tabSize: 50,
+          tabBarHeight: 55,
+          textStyle: const TextStyle(
+            fontSize: 12,
+            color: Colors.black,
+            fontWeight: FontWeight.bold,
+          ),
 
-        tabIconColor: Colors.white,
-        tabIconSize: 28.0,
-        tabIconSelectedSize: 26.0,
-        tabSelectedColor: Colors.white,
-        tabIconSelectedColor: Colors.blue[900],
-        tabBarColor: Color.fromARGB(136, 117, 130, 244),
-        onTabItemSelected: (int value) {
-          setState(() {
-            _tabController!.index = value;
-          });
-        },
-      ),
-      body: TabBarView(
-        physics: const NeverScrollableScrollPhysics(),
-        controller: _tabController,
-        children: [
-          Center(child: Text("ABC")),
-          Homepage(),
-          CitiesListPage(),
-        ],
+          tabIconColor: Colors.white,
+          tabIconSize: 28.0,
+          tabIconSelectedSize: 26.0,
+          tabSelectedColor: Colors.white,
+          tabIconSelectedColor: Colors.blue[900],
+          tabBarColor: Color.fromARGB(136, 117, 130, 244),
+          onTabItemSelected: (int value) {
+            setState(() {
+              _tabController!.index = value;
+            });
+          },
+        ),
+        body: TabBarView(
+          physics: const NeverScrollableScrollPhysics(),
+          controller: _tabController,
+          children: [
+            Center(child: Text("ABC")),
+            Homepage(),
+            CitiesListPage(),
+          ],
+        ),
       ),
     );
   }
