@@ -2,6 +2,7 @@ library motiontabbar;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import '../bottom_sheet.dart';
 import 'motion-tab-item.dart';
 
 typedef MotionTabBuilder = Widget Function();
@@ -179,6 +180,7 @@ class _MotionTabBarState extends State<MotionTabBar>
         child: Stack(
           alignment: Alignment.topCenter,
           children: <Widget>[
+            // BottomSheets(),
             Container(
               height: widget.tabBarHeight,
               decoration: BoxDecoration(
@@ -249,6 +251,7 @@ class _MotionTabBarState extends State<MotionTabBar>
                         child: Stack(
                           alignment: Alignment.center,
                           children: [
+                            // BottomSheets(),
                             CustomPaint(
                               painter: HalfPainter(
                                 color: Color.fromARGB(111, 62, 63, 116),
@@ -289,6 +292,7 @@ class _MotionTabBarState extends State<MotionTabBar>
                           ],
                         ),
                       ),
+                      // BottomSheets()
                     ],
                   ),
                 ),
