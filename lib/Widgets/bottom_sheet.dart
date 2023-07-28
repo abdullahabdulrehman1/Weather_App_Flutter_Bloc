@@ -5,9 +5,9 @@ import 'package:glass_kit/glass_kit.dart';
 // import 'package:weatherappflutterbloc/Screens/homepage.dart';
 // import 'package:weatherappflutterbloc/Widgets/bottomnavi.dart';
 import './pub_widget/bottom_sheet/draggable_bottom_sheet_nullsafety.dart';
-import 'pub_widget/glass_morphic/glassmorphism.dart';
+// import 'pub_widget/glass_morphic/glassmorphism.dart';
 
-class BottomSheets extends StatelessWidget {
+class BottomSheets extends StatefulWidget {
   const BottomSheets({super.key});
   static List<IconData> icons = <IconData>[
     Icons.ac_unit,
@@ -16,6 +16,14 @@ class BottomSheets extends StatelessWidget {
     Icons.add_photo_alternate,
     Icons.format_line_spacing
   ];
+
+  @override
+  State<BottomSheets> createState() => _BottomSheetsState();
+}
+
+ScrollController _scrollController = ScrollController();
+
+class _BottomSheetsState extends State<BottomSheets> {
   @override
   Widget build(BuildContext context) {
     return DraggableBottomSheet(
@@ -68,26 +76,102 @@ class BottomSheets extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
-            const SizedBox(height: 16),
             Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: icons.map((icon) {
-                return Container(
-                  width: 50,
-                  height: 50,
-                  margin: const EdgeInsets.only(right: 16),
-                  child: Icon(
-                    icon,
-                    color: Colors.pink,
-                    size: 40,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Text(
+                  "Hourly Forecast",
+                  style: TextStyle(fontWeight: FontWeight.bold),
+                ),
+                Text("Hourly Forecast",
+                    style: TextStyle(fontWeight: FontWeight.bold))
+              ],
+            ),
+            SizedBox(
+              width: 10,
+            ),
+            Divider(
+              thickness: 2,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Stack(children: [
+                  Container(
+                    width: 40,
+                    height: 150,
+                    decoration: BoxDecoration(
+                      color: Color(0xff612FAB), // Set the desired color
+                      borderRadius: BorderRadius.circular(
+                          50), // Half of the height to create an oval shape
+                    ),
                   ),
+                  // Expanded(child: Text("he"))
+                  Positioned(
+                    top: 8, // Adjust the top position as needed
+                    left: 0, // Adjust the left position as needed
+                    right: 0, // Adjust the right position as needed
+                    child: Center(
+                      child: Text(
+                        '12 AM',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ]),
+                Container(
+                  width: 40,
+                  height: 150,
                   decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(10),
+                    color: Color(0xff612FAB), // Set the desired color
+                    borderRadius: BorderRadius.circular(
+                        50), // Half of the height to create an oval shape
                   ),
-                );
-              }).toList(),
-            )
+                ),
+                Container(
+                  width: 40,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    color: Color(0xff612FAB), // Set the desired color
+                    borderRadius: BorderRadius.circular(
+                        50), // Half of the height to create an oval shape
+                  ),
+                ),
+                Container(
+                  width: 40,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    color: Color(0xff612FAB), // Set the desired color
+                    borderRadius: BorderRadius.circular(
+                        50), // Half of the height to create an oval shape
+                  ),
+                ),
+                Container(
+                  width: 40,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    color: Color(0xff612FAB), // Set the desired color
+                    borderRadius: BorderRadius.circular(
+                        50), // Half of the height to create an oval shape
+                  ),
+                ),
+                Container(
+                  width: 40,
+                  height: 150,
+                  decoration: BoxDecoration(
+                    color: Color(0xff612FAB), // Set the desired color
+                    borderRadius: BorderRadius.circular(
+                        50), // Half of the height to create an oval shape
+                  ),
+                ),
+              ],
+            ),
+            // const SizedBox(height: 16),
           ],
         ),
       )),
@@ -139,8 +223,8 @@ class BottomSheets extends StatelessWidget {
           ],
         ),
       ),
-      minExtent: 150,
-      maxExtent: MediaQuery.of(context).size.height * 0.8,
+      minExtent: 250,
+      maxExtent: MediaQuery.of(context).size.height * 1,
     );
   }
 }
