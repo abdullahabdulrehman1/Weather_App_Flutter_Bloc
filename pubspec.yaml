@@ -28,12 +28,14 @@ flutter:
   assets:
   
     # - assets/Images/c0.png
+    - assets/Images/
     - assets/Images/bg01.png
     - assets/Images/fff.png
     - assets/Images/house.png
-    - assets/Images/
     - assets/Images/container_back.png
     - assets/Images/moon_coud_fast.svg
     - assets/Images/moon.png
     - assets/Images/Sun_rain.png
+    - assets/Images/rain_weather.png
+    - assets/Images/mooncloud.svg
     

@@ -1,8 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:weatherappflutterbloc/Screens/homepage.dart';
-import 'package:weatherappflutterbloc/Widgets/bottom_sheet.dart';
 import 'package:weatherappflutterbloc/Widgets/bottomnavi.dart';
-import 'package:weatherappflutterbloc/Widgets/pub_widget/bottom_sheet/draggable_bottom_sheet_nullsafety.dart';
 
 void main() {
   runApp(MainApp());

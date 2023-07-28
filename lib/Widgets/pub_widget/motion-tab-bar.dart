@@ -2,7 +2,7 @@ library motiontabbar;
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import '../bottom_sheet.dart';
+
 import 'motion-tab-item.dart';
 
 typedef MotionTabBuilder = Widget Function();
