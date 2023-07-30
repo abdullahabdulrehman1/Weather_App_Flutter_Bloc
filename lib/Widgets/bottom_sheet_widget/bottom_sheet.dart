@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
+import 'package:weatherappflutterbloc/Widgets/bottom_sheet_widget/bottom_sheet_weather_expanded.dart';
 import 'package:weatherappflutterbloc/Widgets/bottom_sheet_widget/bottom_sheet_weather_hourly.dart';
 import '../pub_widget/bottom_sheet/draggable_bottom_sheet_nullsafety.dart';
 
@@ -33,16 +34,16 @@ class _BottomSheetsState extends State<BottomSheets> {
                 ],
                 stops: [0.3, 1],
               ),
-              borderGradient: LinearGradient(
-                begin: Alignment.bottomRight,
-                end: Alignment.topLeft,
-                colors: [
-                  Color(0xFF4579C5).withAlpha(100),
-                  Color(0xFFFFFFF).withAlpha(55),
-                  Color(0xff612FAB).withAlpha(0),
-                ],
-                stops: [0.06, 0.95, 1],
-              ),
+              // borderGradient: LinearGradient(
+              //   begin: Alignment.bottomRight,
+              //   end: Alignment.topLeft,
+              //   colors: [
+              //     Color(0xFF4579C5).withAlpha(100),
+              //     Color(0xFFFFFFF).withAlpha(55),
+              //     Color(0xff612FAB).withAlpha(0),
+              //   ],
+              //   stops: [0.06, 0.95, 1],
+              // ),
               child: WeatherHourlyDaily())),
       expandedChild: GlassContainer(
         // padding: const EdgeInsets.all(16),
@@ -65,18 +66,18 @@ class _BottomSheetsState extends State<BottomSheets> {
           ],
           stops: [0.3, 1],
         ),
-        borderGradient: LinearGradient(
-          begin: Alignment.bottomRight,
-          end: Alignment.topLeft,
-          colors: [
-            Color(0xFF4579C5).withAlpha(100),
-            Color(0xFFFFFFF).withAlpha(55),
-            Color(0xff612FAB).withAlpha(0),
-          ],
-          stops: [0.06, 0.95, 1],
-        ),
+        // borderGradient: LinearGradient(
+        //   begin: Alignment.bottomRight,
+        //   end: Alignment.topLeft,
+        //   colors: [
+        //     Color(0xFF4579C5).withAlpha(100),
+        //     Color(0xFFFFFFF).withAlpha(55),
+        //     Color(0xff612FAB).withAlpha(0),
+        //   ],
+        //   stops: [0.06, 0.95, 1],
+        // ),
 
-        child: WeatherHourlyDaily(),
+        child: BottomSheetWeatherExpanded(),
       ),
       minExtent: 180,
       maxExtent: MediaQuery.of(context).size.height * 0.9,
