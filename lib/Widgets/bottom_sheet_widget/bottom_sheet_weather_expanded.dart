@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:weatherappflutterbloc/Widgets/bottom_sheet_widget/bottom_sheet_weather_forecast.dart';
+import 'package:gradient_line_graph/gradient_line_graph.dart';
 
 class BottomSheetWeatherExpanded extends StatelessWidget {
   const BottomSheetWeatherExpanded({super.key});
@@ -82,9 +82,9 @@ class BottomSheetWeatherExpanded extends StatelessWidget {
             margin: EdgeInsets.only(
                 bottom: MediaQuery.of(context).size.height * 0.5),
             width: MediaQuery.of(context).size.width * 0.8,
-            height: MediaQuery.of(context).size.height * 0.2,
+            height: MediaQuery.of(context).size.height * 0.15,
             // height: 100,
-            borderRadius: BorderRadius.circular(50),
+            borderRadius: BorderRadius.circular(30),
             blur: 7,
             borderColor: Colors.transparent,
             // shadowColor: Color.black,
@@ -93,7 +93,7 @@ class BottomSheetWeatherExpanded extends StatelessWidget {
               begin: Alignment.topLeft,
               end: Alignment.bottomRight,
               colors: [
-                Color(0xff612FAB).withAlpha(100),
+                Color(0xFF262C51).withAlpha(100),
                 // Color(0xFFffffff).withAlpha(0),
                 Color(0xff612FAB).withAlpha(50),
               ],
@@ -114,7 +114,59 @@ class BottomSheetWeatherExpanded extends StatelessWidget {
             //   borderRadius: BorderRadius.circular(
             //       50), // Half of the height to create an oval shape
             // ),
-          ), // BottomSheetWeather(),
+            child: Stack(
+              children: [
+                Positioned(
+                  top: MediaQuery.of(context).size.height * 0.01,
+                  left: MediaQuery.of(context).size.height * 0.02,
+                  child: Text(
+                    "Air Quality Index",
+                    style: GoogleFonts.roboto(
+                      textStyle: TextStyle(
+                        // fontWeight: FontWeight.w100,
+                        color: Colors.white,
+                        fontSize: 16,
+                        height: 1,
+                        fontWeight: FontWeight.w700,
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  top: MediaQuery.of(context).size.height * 0.05,
+                  left: 0, right: 0,
+
+                  // left: MediaQuery.of(context).size.height * 0.02,
+                  child: Center(
+                    child: Text(
+                      "120",
+                      style: GoogleFonts.roboto(
+                        textStyle: TextStyle(
+                          // fontWeight: FontWeight.w100,
+                          color: Colors.white,
+                          fontSize: 32,
+                          height: 1,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  bottom: 20,
+                  // top: 40,
+                  child: GradientLineGraphView(
+                    min: 0,
+                    max: 100,
+                    value: 20,
+                    precentage: 100,
+                    color: Color(0xFF4cbdbb).withOpacity(0.7),
+                    duration: Duration(milliseconds: 1000),
+                  ),
+                ),
+              ],
+            ),
+          ),
         ],
       ),
     );

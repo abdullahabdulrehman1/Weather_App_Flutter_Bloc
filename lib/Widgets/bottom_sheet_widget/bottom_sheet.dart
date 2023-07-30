@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
+import 'package:weatherappflutterbloc/Widgets/bottom_sheet_widget/bottom_sheet_row_widget.dart';
 import 'package:weatherappflutterbloc/Widgets/bottom_sheet_widget/bottom_sheet_weather_expanded.dart';
 import 'package:weatherappflutterbloc/Widgets/bottom_sheet_widget/bottom_sheet_weather_hourly.dart';
 import '../pub_widget/bottom_sheet/draggable_bottom_sheet_nullsafety.dart';
@@ -76,8 +77,21 @@ class _BottomSheetsState extends State<BottomSheets> {
         //   ],
         //   stops: [0.06, 0.95, 1],
         // ),
-
-        child: BottomSheetWeatherExpanded(),
+        child: Stack(
+          children: [
+            BottomSheetWeatherExpanded(),
+            BottomSheetRowWidget(),
+            BottomSheetRowWidget(
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.52),
+            ),
+            BottomSheetRowWidget(
+              margin: EdgeInsets.only(
+                  top: MediaQuery.of(context).size.height * 0.69),
+            ),
+            // BottomSheetRowWidget(),
+          ],
+        ),
       ),
       minExtent: 180,
       maxExtent: MediaQuery.of(context).size.height * 0.9,

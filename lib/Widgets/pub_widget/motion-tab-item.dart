@@ -103,8 +103,8 @@ class _MotionTabItemState extends State<MotionTabItem> {
                     alignment: Alignment.center,
                     children: [
                       IconButton(
-                        highlightColor: Colors.transparent,
-                        splashColor: Colors.transparent,
+                        // highlightColor: Colors.transparent,
+                        // splashColor: Colors.transparent,
                         padding: EdgeInsets.all(0),
                         alignment: Alignment(0, 0),
                         icon: Icon(
