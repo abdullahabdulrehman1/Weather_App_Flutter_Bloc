@@ -1,12 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-// import '../Widgets/bottom_sheet.dart';
 import '../Widgets/bottom_sheet_widget/bottom_sheet.dart';
-import '../Widgets/pub_widget/bottom_sheet/draggable_bottom_sheet_nullsafety.dart';
-// import 'package:weatherappflutterbloc/Widgets/bottom_sheet.dart';
-
-// import '../Widgets/pub_widget/bottom_sheet/raw_expandable_bottom_sheet.dart';
 
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
