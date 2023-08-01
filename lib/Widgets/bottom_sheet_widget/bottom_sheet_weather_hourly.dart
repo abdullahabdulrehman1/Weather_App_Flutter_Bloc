@@ -58,18 +58,32 @@ class WeatherHourlyDaily extends StatelessWidget {
           Divider(
             thickness: 2,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              BottomSheetWeather(),
-              BottomSheetWeather(),
-              BottomSheetWeather(),
-              BottomSheetWeather(),
-              BottomSheetWeather(),
-              BottomSheetWeather(),
-            ],
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   crossAxisAlignment: CrossAxisAlignment.center,
+          //   children: [
+          //     BottomSheetWeather(),
+          //     BottomSheetWeather(),
+          //     BottomSheetWeather(),
+          //     BottomSheetWeather(),
+          //     BottomSheetWeather(),
+          //     BottomSheetWeather(),
+          //   ],
+          // ),
+          SizedBox(
+            height: 100, // Adjust the height as needed
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 6,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * 0.05),
+                    child: BottomSheetWeather());
+              },
+            ),
           ),
+
           // const SizedBox(height: 16),
           // if (childwidget != null) childwidget!
           // BottomSheetWeather(),

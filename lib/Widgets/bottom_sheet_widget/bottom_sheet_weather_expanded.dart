@@ -61,26 +61,49 @@ class BottomSheetWeatherExpanded extends StatelessWidget {
           Divider(
             thickness: 2,
           ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              BottomSheetWeather(),
-              BottomSheetWeather(),
-              BottomSheetWeather(),
-              BottomSheetWeather(),
-              BottomSheetWeather(),
-              BottomSheetWeather(),
-            ],
+          // Row(
+          //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          //   crossAxisAlignment: CrossAxisAlignment.center,
+          //   children: [
+          //     BottomSheetWeather(),
+          //     BottomSheetWeather(),
+          //     BottomSheetWeather(),
+          //     BottomSheetWeather(),
+          //     BottomSheetWeather(),
+          //     BottomSheetWeather(),
+          //   ],
+          // ),
+          SizedBox(
+            height: 100, // Adjust the height as needed
+            child: ListView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: 6,
+              itemBuilder: (BuildContext context, int index) {
+                return Container(
+                    margin: EdgeInsets.symmetric(
+                        horizontal: MediaQuery.of(context).size.width * 0.05),
+                    child: BottomSheetWeather());
+              },
+            ),
           ),
+
+          // ListView.builder(
+          //   scrollDirection: Axis.horizontal,
+          //   itemCount: 6,
+          //   itemBuilder: (BuildContext context, int index) {
+          //     return BottomSheetWeather();
+          //   },
+          // ),
+
+          // ListView.builder(itemBuilder: (context, index) {
+          //   return BottomSheetWeather();
+          // }),
           SizedBox(
             height: MediaQuery.of(context).size.height * 0.02,
           ),
           // const SizedBox(height: 16),
           // if (childwidget != null) childwidget!
           GlassContainer(
-            margin: EdgeInsets.only(
-                bottom: MediaQuery.of(context).size.height * 0.5),
             width: MediaQuery.of(context).size.width * 0.8,
             height: MediaQuery.of(context).size.height * 0.15,
             // height: 100,
@@ -104,7 +127,7 @@ class BottomSheetWeatherExpanded extends StatelessWidget {
               end: Alignment.topLeft,
               colors: [
                 Color(0xFF4579C5).withAlpha(10),
-                // Color(0xFFFFFFF).withAlpha(55),
+                Color(0xFFFFFFF).withAlpha(55),
                 Color(0xff612FAB).withAlpha(0),
               ],
               stops: [0.06, 0.95, 1],

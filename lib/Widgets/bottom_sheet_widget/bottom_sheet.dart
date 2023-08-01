@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:weatherappflutterbloc/Widgets/bottom_sheet_widget/bottom_sheet_row_widget.dart';
-import 'package:weatherappflutterbloc/Widgets/bottom_sheet_widget/bottom_sheet_weather_expanded.dart';
+// import 'package:weatherappflutterbloc/Widgets/bottom_sheet_widget/bottom_sheet_weather_expanded.dart';
 import 'package:weatherappflutterbloc/Widgets/bottom_sheet_widget/bottom_sheet_weather_hourly.dart';
 import '../pub_widget/bottom_sheet/draggable_bottom_sheet_nullsafety.dart';
 
-class BottomSheets extends StatefulWidget {
+class BottomSheets extends StatelessWidget {
   const BottomSheets({super.key});
 
-  @override
-  State<BottomSheets> createState() => _BottomSheetsState();
-}
-
-class _BottomSheetsState extends State<BottomSheets> {
   @override
   Widget build(BuildContext context) {
     return DraggableBottomSheet(
@@ -59,7 +54,6 @@ class _BottomSheetsState extends State<BottomSheets> {
         alignment: Alignment.bottomCenter,
         gradient: LinearGradient(
           begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
           colors: [
             Color(0xff612FAB).withAlpha(100),
             // Color(0xFFffffff).withAlpha(0),
@@ -67,6 +61,8 @@ class _BottomSheetsState extends State<BottomSheets> {
           ],
           stops: [0.3, 1],
         ),
+        child: BottomSheetRowWidget(),
+
         // borderGradient: LinearGradient(
         //   begin: Alignment.bottomRight,
         //   end: Alignment.topLeft,
@@ -77,47 +73,64 @@ class _BottomSheetsState extends State<BottomSheets> {
         //   ],
         //   stops: [0.06, 0.95, 1],
         // ),
-        child: Stack(
-          children: [
-            BottomSheetWeatherExpanded(),
-            BottomSheetRowWidget(),
-            BottomSheetRowWidget(
-              margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.52),
-            ),
-            BottomSheetRowWidget(
-              margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.69),
-            ),
-            // BottomSheetRowWidget(),
-          ],
-        ),
+        // child: Column(
+        //   children: [
+        //     BottomSheetWeatherExpanded(),
+        //     BottomSheetRowWidget(
+        //       margin: EdgeInsets.only(
+        //           top: MediaQuery.of(context).size.height * 0.40),
+        //     ),
+        //     BottomSheetRowWidget(
+        //       margin: EdgeInsets.only(
+        //           top: MediaQuery.of(context).size.height * 0.57),
+        //     ),
+        //     // BottomSheetRowWidget(
+        //     //   margin: EdgeInsets.only(
+        //     //       top: MediaQuery.of(context).size.height * 0.74),
+        //     // ),
+        //     // BottomSheetRowWidget(),
+        //   ],
+        // ),
+
+        // child: Column(
+        //   children: [
+        //     Expanded(
+        //       child: Stack(
+        //         children: [
+        //           BottomSheetWeatherExpanded(),
+        //           // BottomSheetRowWidget(
+        //           //   margin: EdgeInsets.only(
+        //           //     top: MediaQuery.of(context).size.height * 0.40,
+        //           //   ),
+        //           // ),
+        //           // BottomSheetRowWidget(
+        //           //   margin: EdgeInsets.only(
+        //           //     top: MediaQuery.of(context).size.height * 0.57,
+        //           //   ),
+        //           // ),
+        //           ListView.builder(
+        //               itemCount: 4,
+        //               itemBuilder: (context, index) {
+        //                 return BottomSheetRowWidget(
+        //                   margin: EdgeInsets.only(
+        //                     // top: MediaQuery.of(context).size.height * 0.40,
+        //                   ),
+        //                 );
+        //               })
+
+        //           // You can add more widgets to the Stack here
+        //         ],
+        //       ),
+        //     ),
+        //     // Other widgets can go below the Expanded widget
+        //   ],
+        // )),
       ),
       minExtent: 180,
-      maxExtent: MediaQuery.of(context).size.height * 0.9,
+      maxExtent: MediaQuery.of(context).size.height * 1,
     );
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //dead COde
 
