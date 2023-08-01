@@ -117,20 +117,20 @@ class BottomSheetWeatherExpanded extends StatelessWidget {
               end: Alignment.bottomRight,
               colors: [
                 Color(0xFF262C51).withAlpha(100),
-                // Color(0xFFffffff).withAlpha(0),
+                Color(0xFFffffff).withAlpha(0),
                 Color(0xff612FAB).withAlpha(50),
               ],
-              stops: [0.3, 1],
+              stops: [0.3, 0.7, 1],
             ),
             borderGradient: LinearGradient(
               begin: Alignment.bottomRight,
               end: Alignment.topLeft,
               colors: [
-                Color(0xFF4579C5).withAlpha(10),
-                Color(0xFFFFFFF).withAlpha(55),
-                Color(0xff612FAB).withAlpha(0),
+                Color(0xFF262C51).withAlpha(100),
+                Color(0xFFffffff).withAlpha(0),
+                Color(0xff612FAB).withAlpha(50),
               ],
-              stops: [0.06, 0.95, 1],
+              stops: [0.3, 0.7, 1],
             ),
             // decoration: BoxDecoration(
             //   color: Color(0xff612FAB), // Set the desired color

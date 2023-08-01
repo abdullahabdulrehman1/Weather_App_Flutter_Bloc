@@ -41,7 +41,7 @@ class DraggableBottomSheet extends StatefulWidget {
     required this.previewChild,
     required this.expandedChild,
     this.alignment = Alignment.bottomLeft,
-    this.blurBackground = true,
+    this.blurBackground = false,
     this.expansionExtent = 10,
     this.maxExtent = double.infinity,
     this.minExtent = 10,

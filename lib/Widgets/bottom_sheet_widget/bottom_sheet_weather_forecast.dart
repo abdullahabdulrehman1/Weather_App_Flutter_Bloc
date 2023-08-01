@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+// import 'package:flutter_svg/flutter_svg.dart';
 import 'package:glass_kit/glass_kit.dart';
 import 'package:google_fonts/google_fonts.dart';
 
@@ -21,18 +21,18 @@ class BottomSheetWeather extends StatelessWidget {
           begin: Alignment.topLeft,
           end: Alignment.bottomRight,
           colors: [
-            Color(0xff612FAB).withAlpha(100),
-            // Color(0xFFffffff).withAlpha(0),
+            Color(0xFF262C51).withAlpha(100),
+            Color(0xFFffffff).withAlpha(0),
             Color(0xff612FAB).withAlpha(50),
           ],
-          stops: [0.3, 1],
+          stops: [0.3, 0.7, 1],
         ),
         borderGradient: LinearGradient(
           begin: Alignment.bottomRight,
           end: Alignment.topLeft,
           colors: [
             Color(0xFF4579C5).withAlpha(10),
-            // Color(0xFFFFFFF).withAlpha(55),
+            Color(0xFFFFFFF).withAlpha(55),
             Color(0xff612FAB).withAlpha(0),
           ],
           stops: [0.06, 0.95, 1],

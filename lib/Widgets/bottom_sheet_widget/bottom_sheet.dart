@@ -49,7 +49,7 @@ class BottomSheets extends StatelessWidget {
           topLeft: Radius.circular(20),
           topRight: Radius.circular(20),
         ),
-        blur: 7,
+        blur: 5,
         borderColor: Colors.transparent,
         alignment: Alignment.bottomCenter,
         gradient: LinearGradient(
