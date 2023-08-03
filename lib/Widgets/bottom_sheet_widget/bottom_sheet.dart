@@ -127,7 +127,7 @@ class BottomSheets extends StatelessWidget {
         // )),
       ),
       minExtent: 180,
-      maxExtent: MediaQuery.of(context).size.height * 1,
+      maxExtent: MediaQuery.of(context).size.height * 0.75,
     );
   }
 }
