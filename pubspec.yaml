@@ -17,6 +17,7 @@ dependencies:
   google_fonts: ^5.1.0
   gradient_line_graph: ^1.0.0
   motion_tab_bar_v2: ^0.2.6
+  syncfusion_flutter_charts: ^22.2.8
   vs_scrollbar: ^0.2.1
 
 dev_dependencies:
