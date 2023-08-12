@@ -9,6 +9,7 @@ environment:
 dependencies:
   animated_notch_bottom_bar: ^1.0.0
 
+  community_charts_flutter: ^1.0.1
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.7

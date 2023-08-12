@@ -1,9 +1,10 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:glass_kit/glass_kit.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'bottom_sheet_weather_expanded.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:syncfusion_flutter_charts/sparkcharts.dart';
+// import 'package:syncfusion_flutter_charts/sparkcharts.dart';
 
 class BottomSheetRowWidget extends StatefulWidget {
   final EdgeInsets? margin;
@@ -95,29 +96,36 @@ class _BottomSheetRowWidgetState extends State<BottomSheetRowWidget> {
                     ],
                     stops: [0.3, 0.7, 1],
                   ),
-                  child: Expanded(
+                  child: Center(
                     child: SfCartesianChart(
                         primaryXAxis: CategoryAxis(),
+                        enableSideBySideSeriesPlacement: false,
+                        // plotAreaBorderColor: Colors.red,
+                        // borderColor: Colors.purple,
                         // Chart title
                         // title: ChartTitle(text: 'Half yearly sales analysis'),
                         // Enable legend
                         // legend: Legend(isVisible: true),
-                        // Enable tooltip
+                        // Enable tooltipsi
+
                         tooltipBehavior: _tooltipBehavior,
                         series: <LineSeries<SalesData, String>>[
                           LineSeries<SalesData, String>(
                               dataSource: <SalesData>[
-                                SalesData('Jan', 35),
-                                SalesData('Feb', 28),
-                                SalesData('Mar', 34),
-                                SalesData('Apr', 32),
-                                SalesData('May', 40)
+                                SalesData('Mon', 35),
+                                SalesData('Tue', 28),
+                                SalesData('Wed', 34),
+                                SalesData('Thu', 32),
+                                SalesData('Fri', 40),
+                                SalesData('Sat', 40),
+                                SalesData('Sun', 40),
                               ],
                               xValueMapper: (SalesData sales, _) => sales.month,
                               yValueMapper: (SalesData sales, _) => sales.value,
+
                               // Enable data label
                               dataLabelSettings:
-                                  DataLabelSettings(isVisible: false))
+                                  DataLabelSettings(isVisible: true))
                         ]),
                   ),
                 ),
@@ -157,6 +165,44 @@ class _BottomSheetRowWidgetState extends State<BottomSheetRowWidget> {
                     ],
                     stops: [0.3, 0.7, 1],
                   ),
+                  child: Stack(children: [
+                    Positioned(
+                      top: MediaQuery.of(context).size.height * 0.01,
+                      left: MediaQuery.of(context).size.height * 0.02,
+                      child: Text(
+                        "Humidity",
+                        style: GoogleFonts.roboto(
+                          textStyle: TextStyle(
+                            // fontWeight: FontWeight.w100,
+                            color: Colors.white,
+                            fontSize: 16,
+                            height: 1,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                      ),
+                    ),
+                    Positioned(
+                      top: MediaQuery.of(context).size.height * 0.06,
+                      left: 0, right: 0,
+
+                      // left: MediaQuery.of(context).size.height * 0.02,
+                      child: Center(
+                        child: Text(
+                          "66 %",
+                          style: GoogleFonts.roboto(
+                            textStyle: TextStyle(
+                              // fontWeight: FontWeight.w100,
+                              color: Colors.white,
+                              fontSize: 32,
+                              height: 1,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ]),
                 ),
               ],
             ),
